@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Reset end */
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(98, 182, 98);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header > #shop-name {
+  font-size: 48px;
+}
+
+header > nav {
+  margin: 0 50px;
+}
+
+header > nav > * {
+  padding: 20px;
+  font-size: 28px;
+}
+
+main {
+  margin-top: 80px;
+}
+
+footer {
+  background-color: rgb(27, 26, 26);
+  color: white;
+}
+
+.shop {
+  display: flex;
+}
+
+.shop > .filter-bar {
+  background-color: rgb(240, 240, 240);
+  width: 200px;
+}
+
+.items {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.item-container {
+  display: grid;
+  place-items: center;
+  width: 300px;
+  height: 400px;
+}
+
+.item-container:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+.item-container > img {
+  height: 70%;
+  width: 90%;
+  object-fit: contain;
+}
