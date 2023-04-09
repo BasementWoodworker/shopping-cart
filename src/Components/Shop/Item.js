@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Item(props) {
+export default function Item({ itemInfo, cart, setCart }) {
   const {
     wood,
     price,
@@ -9,16 +9,29 @@ export default function Item(props) {
     width,
     thickness,
     moisture,
-    description
-  } = props.itemInfo
+    description,
+    id
+  } = itemInfo
+
+  function addHandler() {
+    const itemInCart = cart.find(elem => elem.id === itemInfo.id);
+    if (itemInCart === undefined) {
+      const newItem = itemInfo
+      newItem.quantity = 1;
+      setCart(cart.concat(newItem));
+    } else {
+      itemInCart.quantity += 1;
+    }
+  }
+
   return(
-  <div className="item-container">
+  <div className="item-container" key={id}>
     <img src={require(`../../Assets/images/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <p>{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <p>{moisture + "% moisture"}</p>
     <div>
       <span>{price + "$"}</span>
-      <button>Add to cart</button>
+      <button onClick={addHandler}>Add to cart</button>
     </div>
   </div>
   )

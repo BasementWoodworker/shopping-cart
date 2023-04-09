@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../Components/Header"
 import Footer from "../Components/Footer";
-import Shop from "../Components/Shop/Shop";
+import Cart from "../Components/Cart/Cart";
 
-export default function ShopPage({ cart, setCart }) {
+export default function CartPage({ cart, setCart }) {
   return(
     <>
       <Header/>
-      <Shop cart={cart} setCart={setCart}/>
+      <Cart cart={cart} setCart={setCart}/>
       <Footer/>
     </>
   )

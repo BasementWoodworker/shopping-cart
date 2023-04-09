@@ -7,7 +7,7 @@
     "width": "150",
     "thickness": "25",
     "moisture": "8",
-    "description": "Beech is a hard wood, moderately heavy and solid, with good mechanical properties."
+    "id": "1"
   },
   {
     "wood": "Beech",
@@ -17,7 +17,7 @@
     "width": "180",
     "thickness": "30",
     "moisture": "8",
-    "description": "Beech is a hard wood, moderately heavy and solid, with good mechanical properties."
+    "id": "2"
   },
   {
     "wood": "Beech",
@@ -27,7 +27,7 @@
     "width": "40",
     "thickness": "40",
     "moisture": "8",
-    "description": "Beech is a hard wood, moderately heavy and solid, with good mechanical properties."
+    "id": "3"
   },
   {
     "wood": "Beech",
@@ -37,7 +37,7 @@
     "width": "800",
     "thickness": "50",
     "moisture": "8",
-    "description": "Beech is a hard wood, moderately heavy and solid, with good mechanical properties."
+    "id": "4"
   },
   {
     "wood": "Ash",
@@ -47,7 +47,7 @@
     "width": "150",
     "thickness": "25",
     "moisture": "8",
-    "description": "Ash is a lighter colored wood that can add a tasteful look to your interior projects. It is known for its straight grain and coarse uniform texture that can be stained or polished to a nice finish."
+    "id": "5"
   },
   {
     "wood": "Ash",
@@ -57,7 +57,7 @@
     "width": "180",
     "thickness": "30",
     "moisture": "8",
-    "description": "Ash is a lighter colored wood that can add a tasteful look to your interior projects. It is known for its straight grain and coarse uniform texture that can be stained or polished to a nice finish."
+    "id": "6"
   },
   {
     "wood": "Ash",
@@ -67,7 +67,7 @@
     "width": "50",
     "thickness": "50",
     "moisture": "8",
-    "description": "Ash is a lighter colored wood that can add a tasteful look to your interior projects. It is known for its straight grain and coarse uniform texture that can be stained or polished to a nice finish."
+    "id": "7"
   },
   {
     "wood": "Ash",
@@ -77,7 +77,7 @@
     "width": "700",
     "thickness": "70",
     "moisture": "8",
-    "description": "Ash is a lighter colored wood that can add a tasteful look to your interior projects. It is known for its straight grain and coarse uniform texture that can be stained or polished to a nice finish."
+    "id": "8"
   },
   {
     "wood": "Oak",
@@ -87,7 +87,7 @@
     "width": "150",
     "thickness": "30",
     "moisture": "8",
-    "description": "Oak is a light to medium brown color. It’s coarse texture and large pores add a distinctive look to your various interior projects."
+    "id": "9"
   },
   {
     "wood": "Oak",
@@ -97,7 +97,7 @@
     "width": "140",
     "thickness": "30",
     "moisture": "8",
-    "description": "Oak is a light to medium brown color. It’s coarse texture and large pores add a distinctive look to your various interior projects."
+    "id": "10"
   },
   {
     "wood": "Oak",
@@ -107,7 +107,7 @@
     "width": "100",
     "thickness": "100",
     "moisture": "8",
-    "description": "Oak is a light to medium brown color. It’s coarse texture and large pores add a distinctive look to your various interior projects."
+    "id": "11"
   },
   {
     "wood": "Oak",
@@ -117,7 +117,7 @@
     "width": "700",
     "thickness": "70",
     "moisture": "8",
-    "description": "Oak is a light to medium brown color. It’s coarse texture and large pores add a distinctive look to your various interior projects."
+    "id": "12"
   },
   {
     "wood": "Pine",
@@ -127,7 +127,7 @@
     "width": "150",
     "thickness": "25",
     "moisture": "18",
-    "description": "Pine wood is medium-weight and relatively soft. Its strength and elasticity are good."
+    "id": "13"
   },
   {
     "wood": "Pine",
@@ -137,7 +137,7 @@
     "width": "150",
     "thickness": "40",
     "moisture": "18",
-    "description": "Pine wood is medium-weight and relatively soft. Its strength and elasticity are good."
+    "id": "14"
   },
   {
     "wood": "Pine",
@@ -147,6 +147,6 @@
     "width": "50",
     "thickness": "50",
     "moisture": "18",
-    "description": "Pine wood is medium-weight and relatively soft. Its strength and elasticity are good."
+    "id": "15"
   }
 ]

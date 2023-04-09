@@ -37,6 +37,8 @@ header > #shop-name {
 }
 
 header > nav {
+  display: flex;
+  align-items: center;
   margin: 0 50px;
 }
 
@@ -45,8 +47,15 @@ header > nav > * {
   font-size: 28px;
 }
 
+.cart-link {
+  background-image: url("./Assets/icons/cart.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 main {
   margin-top: 80px;
+  flex-grow: 1;
 }
 
 footer {
@@ -67,6 +76,7 @@ footer {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  place-items: center;
 }
 
 .item-container {
@@ -84,4 +94,18 @@ footer {
   height: 70%;
   width: 90%;
   object-fit: contain;
+}
+
+.item-container-cart {
+  display: flex;
+  height: 200px;
+}
+
+.item-container-cart > img {
+  height: 100%;
+}
+
+.item-container-cart > .quantity-container {
+  display: flex;
+  height: min-content;
 }
