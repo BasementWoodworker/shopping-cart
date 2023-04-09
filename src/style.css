@@ -8,6 +8,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+input::placeholder {
+  color: black;
+}
 /* Reset end */
 
 html,
@@ -69,7 +73,53 @@ footer {
 
 .shop > .filter-bar {
   background-color: rgb(240, 240, 240);
-  width: 200px;
+  width: 250px;
+}
+
+.filter-bar > .wood-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.slider-container > .filter-criteria {
+  position: absolute;
+  top: -10px;
+  left: 100px;
+}
+
+.slider-container > input {
+  width: 50px;
+}
+
+.slider {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 3px;
+  padding: 0px 20px;
+  flex-grow: 1;
+}
+
+.slider > .track {
+  background-color: lightgrey;
+  height: 15px;
+  border-radius: 10px;
+}
+
+.slider > .thumb {
+  outline: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(61, 59, 59);
 }
 
 .items {
