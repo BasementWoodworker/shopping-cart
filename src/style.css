@@ -29,8 +29,8 @@ html {
 
 :root {
   --offblack: rgb(26, 34, 27);
-  --header-height: 80px;
   --green: rgb(98, 182, 98);
+  --filter-bar-background: rgb(240, 240, 240);
 }
 
 /* Make sure footer is always at the bottom */
@@ -47,15 +47,12 @@ main {
   color: var(--offblack);
 }
 
-main {
-  margin-top: var(--header-height);
-}
-
 header {
   z-index: 3;
-  position: fixed;
+  top: 0;
+  position: sticky;
   width: 100%;
-  height: var(--header-height);
+  height: 80px;
   background-color: var(--green);
   display: flex;
   justify-content: space-between;
@@ -171,10 +168,10 @@ header > nav > * {
   font-size: 24px;
 }
 
-.home-page .shop-button {
+.hero-section > .shop-button {
   font-size: 48px;
   background-color: var(--green);
-  padding: 8px;
+  padding: 12px;
 }
 
 .shop {
@@ -182,13 +179,40 @@ header > nav > * {
 }
 
 .shop > .filter-bar {
-  background-color: rgb(240, 240, 240);
+  background-color: var(--filter-bar-background);
   width: 250px;
 }
 
-.filter-bar > .wood-filter {
+.filter-settings {
+  position: fixed;
   display: flex;
   flex-direction: column;
+  padding: 8px 20px;
+}
+
+.filter-settings > * {
+  margin: 2px 0;
+}
+
+.filter-settings label {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+  padding-right: 125px;
+  user-select: none;
+}
+
+.filter-settings input[type="checkbox"] {
+  accent-color: green;
+  height: 15px;
+  width: 15px;
+}
+
+.filter-settings > .separator-line {
+  height: 1.5px;
+  background-color: lightgrey;
 }
 
 .slider-container {
@@ -200,8 +224,8 @@ header > nav > * {
 
 .slider-container > .filter-criteria {
   position: absolute;
-  top: -10px;
-  left: 100px;
+  top: -5px;
+  left: 80px;
 }
 
 .slider-container > input {
@@ -212,24 +236,24 @@ header > nav > * {
   height: 50px;
   display: flex;
   align-items: center;
-  margin-right: 5px;
-  margin-left: 3px;
+  margin: 3px;
   padding: 0px 20px;
   flex-grow: 1;
 }
 
 .slider > .track {
-  background-color: lightgrey;
-  height: 15px;
-  border-radius: 10px;
+  background-color: rgb(11, 92, 0);
+  height: 5px;
+  border-radius: 4px;
 }
 
 .slider > .thumb {
   outline: none;
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
+  border: 2px solid var(--filter-bar-background);
   border-radius: 50%;
-  background-color: rgb(61, 59, 59);
+  background-color: rgb(11, 92, 0);
 }
 
 .items {
@@ -250,10 +274,6 @@ header > nav > * {
   height: 70%;
   width: 90%;
   object-fit: contain;
-}
-
-.item-container > button.add-in-catalog {
-  z-index: 10;
 }
 
 .item-container-cart {

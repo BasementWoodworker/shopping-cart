@@ -25,6 +25,7 @@ export default function FilterBar({ setDisplayedItems }) {
   const [maxThickness, setMaxThickness] = useState(MAX_THICKNESS);
   const [filterDry, setFilterDry] = useState(false);
 
+  const separator = <div className="separator-line"></div>
   const woodCheckboxes = Object.keys(woodDescriptions).map((wood) => {
     return(
       <label>{wood}
@@ -78,6 +79,7 @@ export default function FilterBar({ setDisplayedItems }) {
       return show;
     }))
   }
+
   useEffect(filterItems, [
     woodFilter,
     shapeFilter,
@@ -94,18 +96,22 @@ export default function FilterBar({ setDisplayedItems }) {
 
   return(
     <nav className="filter-bar">
-      <div className="wood-filter">
-        <h4>Wood</h4>
+      <div className="filter-settings">
+        <h2 className="filter-type">Wood</h2>
         {woodCheckboxes}
-        <h4>Shape</h4>
+        {separator}
+        <MySlider criteria="price" step={25} upperLimit={MAX_PRICE} min={minPrice} setMin={setMinPrice} max={maxPrice} setMax={setMaxPrice} />
+        {separator}
+        <h2 className="filter-type">Shape</h2>
         {shapeCheckboxes}
-        <h4>Moisture</h4>
+        {separator}
         {moistureCheckbox}
+        {separator}
+        <h2 className="filter-type">Size</h2>
+        <MySlider criteria="length" step={250} upperLimit={MAX_LENGTH} min={minLength} setMin={setMinLength} max={maxLength} setMax={setMaxLength} />
+        <MySlider criteria="width" step={50} upperLimit={MAX_WIDTH} min={minWidth} setMin={setMinWidth} max={maxWidth} setMax={setMaxWidth} />
+        <MySlider criteria="thickness" step={5} lowerLimit={10} upperLimit={MAX_THICKNESS} min={minThickness} setMin={setMinThickness} max={maxThickness} setMax={setMaxThickness} />
       </div>
-      <MySlider criteria="price" step={25} upperLimit={MAX_PRICE} min={minPrice} setMin={setMinPrice} max={maxPrice} setMax={setMaxPrice} />
-      <MySlider criteria="length" step={250} upperLimit={MAX_LENGTH} min={minLength} setMin={setMinLength} max={maxLength} setMax={setMaxLength} />
-      <MySlider criteria="width" step={50} upperLimit={MAX_WIDTH} min={minWidth} setMin={setMinWidth} max={maxWidth} setMax={setMaxWidth} />
-      <MySlider criteria="thickness" step={5} lowerLimit={10} upperLimit={MAX_THICKNESS} min={minThickness} setMin={setMinThickness} max={maxThickness} setMax={setMaxThickness} />
     </nav>
   )
 }
