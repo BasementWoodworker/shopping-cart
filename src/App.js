@@ -9,14 +9,17 @@ import ItemPage from "./Components/Pages/Shop/ItemPage/ItemPage";
 export default function App({ page }) {
   const [cart, setCart] = useState([]);
   const [hideCart, setHideCart] = useState(true);
+
   function addToCart(newItem) {
     const itemInCart = cart.find(elem => elem.id === newItem.id);
     if (itemInCart === undefined) {
-      const temp = newItem;
-      temp.quantity = 1;
-      setCart(cart.concat(temp));
+      const copy = {...newItem};
+      copy.quantity = 1;
+      setCart([copy].concat(cart));
     } else {
-      itemInCart.quantity += 1;
+      const copy = {...itemInCart};
+      copy.quantity += 1;
+      setCart(cart.map(elem => elem.id !== copy.id ? elem : copy));
     }
   }
 

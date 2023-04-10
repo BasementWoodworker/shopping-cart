@@ -9,7 +9,10 @@ export default function Header({ setHideCart, cart }) {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        <Link className="cart-link" onClick={() => setHideCart(false)} >{cartSize}</Link>
+        <Link className="cart-link" onClick={() => setHideCart(false)} >
+          <div className="icon"></div>
+          <div className="size">{cartSize}</div>
+        </Link>
       </nav>
     </header>
   )

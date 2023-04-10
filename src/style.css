@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 a {
@@ -62,9 +63,22 @@ header > nav > * {
 }
 
 .cart-link {
+  display: flex;
+}
+
+.cart-link > .icon {
   background-image: url("./Assets/icons/cart.svg");
   background-size: contain;
   background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+.cart-link > .size {
+  font-weight: bold;
+  position: relative;
+  top: 15px;
+  right: 5px;
 }
 
 .cart-container {
