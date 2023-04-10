@@ -1,10 +1,10 @@
 import React from "react";
 import Item from "./Item";
 
-export default function Items({ displayedItems, cart, setCart }) {
+export default function Items({ displayedItems, addToCart }) {
   const wrappedItems = displayedItems.map((itemInfo) => {
     return(
-      <Item itemInfo={itemInfo} cart={cart} setCart={setCart}/>
+      <Item itemInfo={itemInfo} addToCart={addToCart}/>
     )
   })
   return(

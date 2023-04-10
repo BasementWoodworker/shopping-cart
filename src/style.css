@@ -197,6 +197,10 @@ footer {
   object-fit: contain;
 }
 
+.item-container > button.add-in-catalog {
+  z-index: 10;
+}
+
 .item-container-cart {
   display: flex;
   height: 200px;
@@ -209,4 +213,31 @@ footer {
 .item-container-cart > .quantity-container {
   display: flex;
   height: min-content;
+}
+
+/* Item Page */
+
+.item-page {
+  display: flex;
+  gap: 50px;
+  padding: 50px;
+}
+
+.item-page > .image {
+  min-width: 0;
+  flex: 0 1 500px;
+  object-fit: contain;
+}
+
+.item-page > .info {
+  flex: 1 0 500px;
+  margin: 0 auto;
+}
+
+.item-page table,
+.item-page td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  font-size: 24px;
+  padding: 4px;
 }

@@ -10,6 +10,7 @@ export default function RouteSwitch() {
       <Routes>
         <Route path="" element={<App page="home"/>} />
         <Route path="/shop" element={<App page="shop"/>} />
+        <Route path="/items/:itemId" element={<App page="item-page"/>} />
       </Routes>
     </BrowserRouter>
   )
