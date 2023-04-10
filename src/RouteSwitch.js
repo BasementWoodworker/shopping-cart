@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./Routes/HomePage";
-import ShopPage from "./Routes/ShopPage";
-import CartPage from "./Routes/CartPage";
+import App from "./App";
 
 export default function RouteSwitch() {
   const [cart, setCart] = useState([]);
@@ -10,9 +8,8 @@ export default function RouteSwitch() {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<HomePage/>} />
-        <Route path="/shop" element={<ShopPage cart={cart} setCart={setCart}/>} />
-        <Route path="/cart" element={<CartPage cart={cart} setCart={setCart}/>} />
+        <Route path="" element={<App page="home"/>} />
+        <Route path="/shop" element={<App page="shop"/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -26,7 +26,7 @@ export default function Item({ itemInfo, cart, setCart }) {
 
   return(
   <div className="item-container" key={id}>
-    <img src={require(`../../Assets/images/${wood.toLowerCase()}-${shape}.jpg`)}></img>
+    <img src={require(`../../../Assets/images/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <p>{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <p>{moisture + "% moisture"}</p>
     <div>

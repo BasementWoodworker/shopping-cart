@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Items from "./Items";
 import FilterBar from "./FilterBar";
-import itemData from "../../ItemData/ItemData.json";
+import itemData from "../../../ItemData/ItemData.json";
 
 export default function Shop({ cart, setCart }) {
   const [displayedItems, setDisplayedItems] = useState(itemData)

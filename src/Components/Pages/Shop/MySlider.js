@@ -15,7 +15,8 @@ export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, m
         step={step}
         min={lowerLimit}
         max={upperLimit}
-        onChange={(e) => {setMin((Number(e.target.value)))}}/>
+        onChange={(e) => {setMin((Number(e.target.value)))}}
+      />
       <ReactSlider
         className="slider"
         thumbClassName="thumb"
