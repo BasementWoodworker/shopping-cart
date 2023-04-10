@@ -22,33 +22,58 @@ input::placeholder {
   color: black;
 }
 
-html,
-body,
-#root {
+html {
   min-height: 100%;
 }
 /* Reset end */
+
+:root {
+  --offblack: rgb(26, 34, 27);
+  --header-height: 80px;
+  --green: rgb(98, 182, 98);
+}
+
+/* Make sure footer is always at the bottom */
+body,
+#root,
+main {
+  min-height: 95vh;
+}
 
 #root {
   position: relative;
   display: flex;
   flex-direction: column;
+  color: var(--offblack);
+}
+
+main {
+  margin-top: var(--header-height);
 }
 
 header {
   z-index: 3;
   position: fixed;
   width: 100%;
-  height: 80px;
-  background-color: rgb(98, 182, 98);
+  height: var(--header-height);
+  background-color: var(--green);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
 
+footer {
+  height: 50px;
+  background-color: rgb(27, 26, 26);
+  color: white;
+}
+
 header > #shop-name {
-  font-size: 48px;
+  margin-left: 10px;
+  background-image: url("./Assets/icons/logo.svg");
+  height: 50px;
+  width: 50px;
 }
 
 header > nav {
@@ -122,14 +147,34 @@ header > nav > * {
   cursor: pointer;
 }
 
-main {
-  margin-top: 80px;
-  flex-grow: 1;
+.home-page {
+  display: grid;
+  place-items: center;
+  height: calc(100% + 50px);
+  width: 100%;
+  background-image: url("./Assets/images/home-background.jpg");
+  background-size: cover;
 }
 
-footer {
-  background-color: rgb(27, 26, 26);
-  color: white;
+.home-page > .hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  width: 70%;
+  height: 60%;
+  background:rgba(235, 235, 235, 0.8)
+}
+
+.hero-section > p.greeting-message {
+  font-size: 24px;
+}
+
+.home-page .shop-button {
+  font-size: 48px;
+  background-color: var(--green);
+  padding: 8px;
 }
 
 .shop {
@@ -199,10 +244,6 @@ footer {
   place-items: center;
   width: 300px;
   height: 400px;
-}
-
-.item-container:hover {
-  background-color: rgb(236, 236, 236);
 }
 
 .item-container > img {

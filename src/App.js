@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Components/Header"
 import Footer from "./Components/Footer";
-import Home from "./Components/Home";
+import Home from "./Components/Pages/Home/Home";
 import Shop from "./Components/Pages/Shop/Shop";
 import Cart from "./Components/Cart/Cart";
 import ItemPage from "./Components/Pages/Shop/ItemPage/ItemPage";

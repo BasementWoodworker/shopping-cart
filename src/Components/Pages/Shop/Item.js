@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Item({ itemInfo, addToCart }) {
@@ -15,7 +15,7 @@ export default function Item({ itemInfo, addToCart }) {
 
   return(
   <Link to={"/items/" + id} className="item-container" key={id}>
-    <img src={require(`../../../Assets/images/${wood.toLowerCase()}-${shape}.jpg`)}></img>
+    <img src={require(`../../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <p>{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <p>{moisture + "% moisture"}</p>
     <div>

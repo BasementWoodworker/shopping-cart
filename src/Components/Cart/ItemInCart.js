@@ -34,7 +34,7 @@ export default function ItemInCart({ itemInfo, cart, setCart }) {
 
   return(
   <div className="item-container-cart">
-    <img src={require(`../../Assets/images/${wood.toLowerCase()}-${shape}.jpg`)}></img>
+    <img src={require(`../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <p>{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <p>{moisture + "% moisture"}</p>
       <span>{price + "$"}</span>
