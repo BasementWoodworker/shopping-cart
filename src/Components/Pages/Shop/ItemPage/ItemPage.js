@@ -20,7 +20,7 @@ export default function ItemPage({ addToCart }) {
   return(
     <main className="item-page">
       <img className="image" src={require(`../../../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}/>
-      <div class="info">
+      <div className="info">
         <h2 className="name">{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</h2>
         <div className="price">{"$" + price}</div>
         <table>

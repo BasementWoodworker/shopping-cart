@@ -39,7 +39,7 @@ export default function ItemInCart({ itemInfo, cart, setCart }) {
     <p>{moisture + "% moisture"}</p>
       <span>{price + "$"}</span>
       <div className="quantity-container">
-        <button onClick={decrement}>-</button>
+        <button onClick={decrement}>−</button>
         <div>Quantity: {quantity}</div>
         <button onClick={increment}>+</button>
       </div>

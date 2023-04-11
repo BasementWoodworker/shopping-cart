@@ -9,18 +9,21 @@ import ItemPage from "./Components/Pages/Shop/ItemPage/ItemPage";
 export default function App({ page }) {
   const [cart, setCart] = useState([]);
   const [hideCart, setHideCart] = useState(true);
+  const positiveWholeNumbers = new RegExp(/^0*[1-9]\d*$/);
 
-  function addToCart(newItem) {
+  function addToCart(newItem, quantity = 1) {
+    if (!positiveWholeNumbers.test(quantity)) return "cancel";
     const itemInCart = cart.find(elem => elem.id === newItem.id);
     if (itemInCart === undefined) {
       const copy = {...newItem};
-      copy.quantity = 1;
+      copy.quantity = quantity;
       setCart([copy].concat(cart));
     } else {
       const copy = {...itemInCart};
-      copy.quantity += 1;
+      copy.quantity += quantity;
       setCart(cart.map(elem => elem.id !== copy.id ? elem : copy));
     }
+    return "success"
   }
 
   const currentPage = 
