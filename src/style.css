@@ -356,19 +356,34 @@ header > nav > * {
 /* Item Page */
 .item-page {
   display: flex;
+  align-items: flex-start;
   gap: 50px;
   padding: 50px;
 }
 
 .item-page > .image {
+  justify-self: flex-end;
   min-width: 0;
-  flex: 0 1 500px;
+  flex: 1 1 500px;
   object-fit: contain;
 }
 
 .item-page > .info {
+  justify-self: flex-start;
   flex: 1 0 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0 auto;
+}
+
+.item-page > .info > .name {
+  font-size: 32px;
+
+}
+
+.item-page > .info > .price {
+  font-size: 24px;
 }
 
 .item-page table,
@@ -377,4 +392,27 @@ header > nav > * {
   border-collapse: collapse;
   font-size: 24px;
   padding: 4px;
+  width: 300px;
+}
+
+.item-page button.add-in-itempage {
+  color: white;
+  border: none;
+  padding: 4px;
+  font-size: 14px;
+  background-color: var(--green);
+}
+
+.item-page button.add-in-itempage:active {
+  transform: scale(0.95);
+}
+
+.item-page .button-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-page .description {
+  font-style: italic;
 }
