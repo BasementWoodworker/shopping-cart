@@ -7,9 +7,16 @@ export default function Items({ displayedItems, addToCart }) {
       <Item itemInfo={itemInfo} addToCart={addToCart}/>
     )
   })
+  const emptyMsg = (
+    <div className="empty-message">
+      <span className="msg">Nothing found</span>
+      <span className="magnifying-glass"></span>
+    </div>
+  )
+
   return(
     <div className="items">
-      {wrappedItems}
+      {displayedItems.length !== 0 ? wrappedItems : emptyMsg}
     </div>
   )
 }

@@ -6,7 +6,7 @@ export default function Cart({ cart, setCart, setHideCart }) {
   const emptyMsg = (
     <div className="empty-message">
       <span className="msg">Empty</span>
-      <span className="icon"></span>
+      <span className="magnifying-glass"></span>
     </div>
   )
   const checkout = (

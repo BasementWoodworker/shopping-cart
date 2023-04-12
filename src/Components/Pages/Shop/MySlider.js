@@ -4,7 +4,7 @@ import ReactSlider from "react-slider";
 export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, min, setMin, max, setMax }) {
   return(
     <div className="slider-container">
-      <p className="filter-criteria">{criteria}</p>
+      <div className={`filter-criteria ${criteria}`}>{criteria}</div>
       <input
         id={`min-${criteria}`}
         value={min === 0 ? "" : min}

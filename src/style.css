@@ -225,7 +225,7 @@ header > nav > * {
   color: rgb(211, 211, 211);
 }
 
-.cart > .empty-message > .icon {
+.magnifying-glass {
   position: relative;
   top: 20px;
   left: 10px;
@@ -319,7 +319,12 @@ header > nav > * {
 .slider-container > .filter-criteria {
   position: absolute;
   top: -5px;
-  left: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+.slider-container > .filter-criteria.price {
+  font-size: 20px;
 }
 
 .slider-container > input {
@@ -357,6 +362,13 @@ header > nav > * {
   row-gap: 70px;
   place-items: center;
   padding: 50px 20px;
+}
+
+.items > .empty-message {
+  position: relative;
+  bottom: 100px;
+  font-size: 100px;
+  color: lightgrey;
 }
 
 .item-container {
