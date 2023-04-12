@@ -31,6 +31,7 @@ html {
   --offblack: rgb(26, 34, 27);
   --green: rgb(98, 182, 98);
   --filter-bar-background: rgb(240, 240, 240);
+  --svg-lightgrey: invert(99%) sepia(1%) saturate(2972%) hue-rotate(189deg) brightness(110%) contrast(65%);
 }
 
 /* Make sure footer is always at the bottom */
@@ -88,6 +89,7 @@ header > nav > * {
   display: flex;
 }
 
+/* Cart */
 .cart-link > .icon {
   background-image: url("./Assets/icons/cart.svg");
   background-size: contain;
@@ -117,9 +119,9 @@ header > nav > * {
   position: sticky;
   top: 0;
   left: 100px;
-  flex: 0 1 600px;
+  flex: 0 1 650px;
   height: 100vh;
-  padding-right: 20px;
+  padding: 20px;
   overflow-y: scroll;
   scrollbar-width: 0px;
   background-color: white;
@@ -137,11 +139,103 @@ header > nav > * {
 .cart-close {
   height: 50px;
   width: 50px;
+  margin-left: auto;
   font-size: 48px;
   background-image: url("./Assets/icons/close-cart.svg");
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.item-container-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: 100px;
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+}
+
+.item-container-cart > img {
+  width: 100px;
+}
+
+.item-container-cart .name {
+  font-size: 20px;
+}
+
+.item-container-cart > .right-part {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-container-cart > .quantity-container {
+  display: flex;
+  height: min-content;
+}
+
+.item-container-cart button.remove {
+  color: white;
+  border: none;
+  padding: 4px;
+  font-size: 14px;
+  background-color: orangered;
+}
+
+.cart .checkout-container {
+  width: min-content;
+  margin-left: auto;
+  padding-right: 50px;
+}
+
+.checkout-container .total {
+  font-size: 24px;
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+
+.cart button.checkout {
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 18px;
+  background-color: var(--green);
+  margin-left: auto;
+  display: block;
+}
+
+.cart button.checkout:hover::before {
+  position: absolute;
+  content: "!cosmetic button!";
+  color: black;
+  background-color: yellow;
+}
+
+.cart > .empty-message {
+  margin: 50px auto;
+  width: min-content;
+  white-space: nowrap;
+}
+
+.cart > .empty-message > .msg {
+  font-size: 100px;
+  color: rgb(211, 211, 211);
+}
+
+.cart > .empty-message > .icon {
+  position: relative;
+  top: 20px;
+  left: 10px;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  background-image: url("./Assets/icons/magnifying-glass.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: var(--svg-lightgrey);
 }
 
 .home-page {
@@ -336,21 +430,6 @@ header > nav > * {
 
 .item-container button.add-in-catalog:active {
   transform: scale(0.95);
-}
-
-/* Cart */
-.item-container-cart {
-  display: flex;
-  height: 200px;
-}
-
-.item-container-cart > img {
-  height: 100%;
-}
-
-.item-container-cart > .quantity-container {
-  display: flex;
-  height: min-content;
 }
 
 /* Item Page */
