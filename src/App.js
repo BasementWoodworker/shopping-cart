@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import Header from "./Components/Header"
+import React, { useState, useEffect } from "react";
+import Header from "./Components/Header/Header"
 import Footer from "./Components/Footer";
 import Home from "./Components/Pages/Home/Home";
 import Shop from "./Components/Pages/Shop/Shop";
 import Cart from "./Components/Cart/Cart";
 import ItemPage from "./Components/Pages/Shop/ItemPage/ItemPage";
+import itemData from "./ItemData/ItemData.json";
 
 export default function App({ page }) {
   const [cart, setCart] = useState([]);
   const [hideCart, setHideCart] = useState(true);
+  const [displayedItems, setDisplayedItems] = useState(itemData);
+  const [searchbarFilter, setSearchbarFilter] = useState(() => (data) => data);
+  const [sidebarFilter, setSidebarFilter] = useState(() => (data) => data);
   const positiveWholeNumbers = new RegExp(/^0*[1-9]\d*$/);
 
   function addToCart(newItem, quantity = 1) {
@@ -26,16 +30,28 @@ export default function App({ page }) {
     return "success"
   }
 
+  function modifyDisplayedItems() {
+    let result = itemData;
+    result = searchbarFilter(result);
+    result = sidebarFilter(result)
+    setDisplayedItems(result);
+  }
+
+  useEffect(modifyDisplayedItems, [
+    searchbarFilter,
+    sidebarFilter
+  ])
+
   const currentPage = 
     page === "home" ? <Home/> :
-    page === "shop" ? <Shop addToCart={addToCart}/> :
+    page === "shop" ? <Shop addToCart={addToCart} displayedItems={displayedItems} setSidebarFilter={setSidebarFilter}/> :
     page === "item-page" ? <ItemPage addToCart={addToCart}/> :
     null;
   
   return(
     <>
       {hideCart || <Cart cart={cart} setCart={setCart} setHideCart={setHideCart}/>}
-      <Header cart={cart} setHideCart={setHideCart}/>
+      <Header cart={cart} setHideCart={setHideCart} setSearchbarFilter={setSearchbarFilter}/>
       {currentPage}
       <Footer/>
     </>

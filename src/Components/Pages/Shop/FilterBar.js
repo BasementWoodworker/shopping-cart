@@ -12,7 +12,7 @@ const lumberShapes = [
   "slab"
 ]
 
-export default function FilterBar({ setDisplayedItems }) {
+export default function FilterBar({ setSidebarFilter }) {
   const [woodFilter, setWoodFilter] = useState([]);
   const [shapeFilter, setShapeFilter] = useState([]);
   const [minPrice, setMinPrice] = useState(0);
@@ -61,8 +61,8 @@ export default function FilterBar({ setDisplayedItems }) {
     setShapeFilter(updatedShape);
   }
 
-  function filterItems() {
-    setDisplayedItems(allItems.filter((item) => {
+  function filterItems(items) {
+    return items.filter((item) => {
       let show = true;
 
       if (!(item.price >= minPrice && item.price <= maxPrice)) show = false;
@@ -76,11 +76,14 @@ export default function FilterBar({ setDisplayedItems }) {
         if (!shapeFilter.includes(item.shape)) show = false;
       }
       if (filterDry && Number (item.moisture) > 8) show = false; 
+      
       return show;
-    }))
+    })
   }
 
-  useEffect(filterItems, [
+  useEffect(() => {
+    setSidebarFilter(() => filterItems);
+  }, [
     woodFilter,
     shapeFilter,
     minPrice,

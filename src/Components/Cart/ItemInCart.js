@@ -8,7 +8,6 @@ export default function ItemInCart({ itemInfo, cart, setCart }) {
     length,
     width,
     thickness,
-    moisture,
     quantity,
     id
   } = itemInfo;
@@ -57,7 +56,7 @@ export default function ItemInCart({ itemInfo, cart, setCart }) {
     <img src={require(`../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <p className="name">{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <div className="right-part">
-      <span className="price">{price * quantity + "$"}</span>
+      <span className="price">{"$" + price * quantity}</span>
       <div className="quantity-container" onClick={e => e.preventDefault()}>
         <button onClick={decrement}>−</button>
         <input min={1} value={quantity} onChange={handleInputChange} onBlur={removeZeroQuantityItems}/>

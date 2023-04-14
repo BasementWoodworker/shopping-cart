@@ -61,12 +61,6 @@ header {
   padding: 10px;
 }
 
-footer {
-  height: 50px;
-  background-color: rgb(27, 26, 26);
-  color: white;
-}
-
 header > #shop-name {
   margin-left: 10px;
   background-image: url("./Assets/icons/logo.svg");
@@ -83,6 +77,106 @@ header > nav {
 header > nav > * {
   padding: 20px;
   font-size: 28px;
+}
+
+.searchbar-container {
+  position: relative;
+  padding: 0;
+}
+
+.searchbar-container > button.clear,
+.searchbar-container > div.separator,
+.searchbar-container > button[type="submit"] {
+  position: absolute;
+  color: lightgrey;
+  z-index: 10;
+}
+
+input.searchbar {
+  font-size: 18px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 75px;
+}
+
+.searchbar-container > button.clear {
+  top: 3px;
+  right: 50px;
+  font-size: 31px;
+  background: none;
+  border: none;
+}
+
+.searchbar-container > div.separator {
+  top: 7px;
+  right: 37px;
+  font-size: 21px;
+}
+
+.searchbar-container > button[type="submit"] {
+  top: 8px;
+  right: 7px;
+  height: 23px;
+  width: 23px;
+  background: none;
+  background-image: url("./Assets/icons/magnifying-glass.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: var(--svg-lightgrey);
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Search Preview */
+.searchbar-container > .preview {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.searchbar-container .item-container-preview {
+  box-sizing: content-box;
+  display: grid;
+  grid-template-columns: 45px 1fr 40px;
+  gap: 4px;
+  align-items: center;
+  height: 32px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 4px 0px;
+}
+
+.item-container-preview:hover {
+  box-shadow: lightgrey 0px 0px 4px 2px;
+}
+
+.searchbar-container .item-container-preview > img {
+  justify-self: end;
+  height: 30px;
+  max-width: 45px;
+  object-fit: cover;
+}
+
+.searchbar-container .item-container-preview > .name {
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchbar-container .item-container-preview > .price {
+  justify-self: end;
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+footer {
+  height: 50px;
+  background-color: rgb(27, 26, 26);
+  color: white;
 }
 
 .cart-link {
@@ -355,13 +449,32 @@ header > nav > * {
   background-color: rgb(11, 92, 0);
 }
 
-.items {
+.shop > .items {
+  position: relative;
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   row-gap: 70px;
   place-items: center;
   padding: 50px 20px;
+}
+
+.items > .current-search {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.items > .current-search > button {
+  height: 18px;
+  width: 18px;
+  font-size: 17px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 4px;
 }
 
 .items > .empty-message {

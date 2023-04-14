@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import Items from "./Items";
 import FilterBar from "./FilterBar";
-import itemData from "../../../ItemData/ItemData.json";
 
-export default function Shop({ addToCart }) {
-  const [displayedItems, setDisplayedItems] = useState(itemData)
-
+export default function Shop({ addToCart, displayedItems, setSidebarFilter }) {
   return(
     <main className="shop">
-      <FilterBar setDisplayedItems={setDisplayedItems}/>
+      <FilterBar setSidebarFilter={setSidebarFilter}/>
       <Items displayedItems={displayedItems} addToCart={addToCart}/>
     </main>
   )
