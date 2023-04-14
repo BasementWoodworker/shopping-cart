@@ -449,9 +449,24 @@ footer {
   background-color: rgb(11, 92, 0);
 }
 
-.shop > .items {
-  position: relative;
+.shop > .item-display {
   flex-grow: 1;
+}
+
+.shop > .item-display > .page-links {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.shop > .item-display > .page-links > a {
+  text-decoration: underline;
+}
+
+.shop > .item-display .items {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   row-gap: 70px;

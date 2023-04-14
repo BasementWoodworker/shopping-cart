@@ -1,7 +1,7 @@
 [
   {
     "wood": "Beech",
-    "price": "12",
+    "price": "110",
     "shape": "plank",
     "length": "2000",
     "width": "150",
@@ -11,7 +11,7 @@
   },
   {
     "wood": "Beech",
-    "price": "23",
+    "price": "240",
     "shape": "plank",
     "length": "4000",
     "width": "180",
@@ -21,7 +21,7 @@
   },
   {
     "wood": "Beech",
-    "price": "15",
+    "price": "130",
     "shape": "beam",
     "length": "2000",
     "width": "40",
@@ -31,7 +31,7 @@
   },
   {
     "wood": "Beech",
-    "price": "50",
+    "price": "210",
     "shape": "slab",
     "length": "1400",
     "width": "800",
@@ -41,7 +41,7 @@
   },
   {
     "wood": "Ash",
-    "price": "11",
+    "price": "93",
     "shape": "plank",
     "length": "2000",
     "width": "150",
@@ -51,7 +51,7 @@
   },
   {
     "wood": "Ash",
-    "price": "21",
+    "price": "170",
     "shape": "plank",
     "length": "4000",
     "width": "180",
@@ -61,7 +61,7 @@
   },
   {
     "wood": "Ash",
-    "price": "14",
+    "price": "120",
     "shape": "beam",
     "length": "2000",
     "width": "50",
@@ -71,7 +71,7 @@
   },
   {
     "wood": "Ash",
-    "price": "58",
+    "price": "230",
     "shape": "slab",
     "length": "1500",
     "width": "700",
@@ -81,7 +81,7 @@
   },
   {
     "wood": "Oak",
-    "price": "21",
+    "price": "100",
     "shape": "plank",
     "length": "2000",
     "width": "150",
@@ -91,7 +91,7 @@
   },
   {
     "wood": "Oak",
-    "price": "35",
+    "price": "140",
     "shape": "plank",
     "length": "3000",
     "width": "140",
@@ -101,7 +101,7 @@
   },
   {
     "wood": "Oak",
-    "price": "45",
+    "price": "190",
     "shape": "beam",
     "length": "4000",
     "width": "100",
@@ -111,7 +111,7 @@
   },
   {
     "wood": "Oak",
-    "price": "85",
+    "price": "430",
     "shape": "slab",
     "length": "2800",
     "width": "700",
@@ -121,7 +121,7 @@
   },
   {
     "wood": "Pine",
-    "price": "18",
+    "price": "50",
     "shape": "plank",
     "length": "4000",
     "width": "150",
@@ -131,7 +131,7 @@
   },
   {
     "wood": "Pine",
-    "price": "7",
+    "price": "25",
     "shape": "plank",
     "length": "2000",
     "width": "150",
@@ -141,7 +141,7 @@
   },
   {
     "wood": "Pine",
-    "price": "19",
+    "price": "43",
     "shape": "beam",
     "length": "4000",
     "width": "50",

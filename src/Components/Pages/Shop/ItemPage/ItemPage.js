@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import itemData from "../../../../ItemData/ItemData.json";
 import woodDescriptions from "../../../../ItemData/woodDescriptions.json";
 
-export default function ItemPage({ addToCart }) {
+export default function ItemPage({ allItems, addToCart }) {
   const { itemId } = useParams();
-  const itemInfo = itemData.find(item => item.id === itemId)
+  const itemInfo = allItems.find(item => item.id === itemId)
   const {
     wood,
     price,

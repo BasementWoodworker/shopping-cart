@@ -5,12 +5,29 @@ import Home from "./Components/Pages/Home/Home";
 import Shop from "./Components/Pages/Shop/Shop";
 import Cart from "./Components/Cart/Cart";
 import ItemPage from "./Components/Pages/Shop/ItemPage/ItemPage";
-import itemData from "./ItemData/ItemData.json";
+import allItems from "./ItemData/ItemData.json";
+
+function addTestJunk(array) {
+  for (let i = 0; i < 500; i++) {
+    array.push({
+      "wood": "test",
+      "price": "",
+      "shape": "test",
+      "length": "1",
+      "width": "1",
+      "thickness": "10",
+      "moisture": "1",
+      "id": "99999999"
+    })
+  }
+}
+addTestJunk(allItems);
 
 export default function App({ page }) {
+  const ITEMS_PER_PAGE = 12;
   const [cart, setCart] = useState([]);
   const [hideCart, setHideCart] = useState(true);
-  const [displayedItems, setDisplayedItems] = useState(itemData);
+  const [displayedItems, setDisplayedItems] = useState(allItems);
   const [searchbarFilter, setSearchbarFilter] = useState(() => (data) => data);
   const [sidebarFilter, setSidebarFilter] = useState(() => (data) => data);
   const positiveWholeNumbers = new RegExp(/^0*[1-9]\d*$/);
@@ -31,7 +48,7 @@ export default function App({ page }) {
   }
 
   function modifyDisplayedItems() {
-    let result = itemData;
+    let result = allItems;
     result = searchbarFilter(result);
     result = sidebarFilter(result)
     setDisplayedItems(result);
@@ -44,14 +61,14 @@ export default function App({ page }) {
 
   const currentPage = 
     page === "home" ? <Home/> :
-    page === "shop" ? <Shop addToCart={addToCart} displayedItems={displayedItems} setSidebarFilter={setSidebarFilter}/> :
-    page === "item-page" ? <ItemPage addToCart={addToCart}/> :
+    page === "shop" ? <Shop addToCart={addToCart} displayedItems={displayedItems} setSidebarFilter={setSidebarFilter} ITEMS_PER_PAGE={ITEMS_PER_PAGE}/> :
+    page === "item-page" ? <ItemPage allItems={allItems} addToCart={addToCart}/> :
     null;
   
   return(
     <>
       {hideCart || <Cart cart={cart} setCart={setCart} setHideCart={setHideCart}/>}
-      <Header cart={cart} setHideCart={setHideCart} setSearchbarFilter={setSearchbarFilter}/>
+      <Header allItems={allItems} cart={cart} setHideCart={setHideCart} setSearchbarFilter={setSearchbarFilter}/>
       {currentPage}
       <Footer/>
     </>

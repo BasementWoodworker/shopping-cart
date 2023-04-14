@@ -29,7 +29,7 @@ export default function Item({ itemInfo, addToCart }) {
   }
 
   return(
-  <Link to={"/items/" + id} className="item-container" key={id} draggable={false}>
+  <Link to={"/items/" + id} className="item-container" draggable={false}>
     <img src={require(`../../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}></img>
     <div className="item-info">
       <p className="name">{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>

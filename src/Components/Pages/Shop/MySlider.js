@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactSlider from "react-slider";
 
 export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, min, setMin, max, setMax }) {

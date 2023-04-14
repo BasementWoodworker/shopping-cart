@@ -1,8 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Item from "./Item";
 
-export default function Items({ displayedItems, addToCart }) {
-  const wrappedItems = displayedItems.map((itemInfo) => {
+export default function Items({ displayedItems, addToCart, ITEMS_PER_PAGE }) {
+  let { currentPage } = useParams();
+  if (currentPage === undefined) currentPage = 1;
+  const pageItems = displayedItems.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE - 1);
+  const wrappedItems = pageItems.map((itemInfo) => {
     return(
       <Item itemInfo={itemInfo} addToCart={addToCart}/>
     )
@@ -16,7 +20,7 @@ export default function Items({ displayedItems, addToCart }) {
 
   return(
     <div className="items">
-      {displayedItems.length !== 0 ? wrappedItems : emptyMsg}
+      {pageItems.length !== 0 ? wrappedItems : emptyMsg}
     </div>
   )
 }

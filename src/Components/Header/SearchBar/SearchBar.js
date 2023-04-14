@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
-import itemData from "../../../ItemData/ItemData.json";
 import Preview from "./Preview";
 
-export default function SearchBar({ setSearchbarFilter }) {
+export default function SearchBar({ allItems, setSearchbarFilter }) {
   const [input, setInput] = useState("");
   const [currentSearch, setCurrentSearch] = useState("");
   const [previewItems, setPreviewItems] = useState([]);
@@ -43,11 +42,10 @@ export default function SearchBar({ setSearchbarFilter }) {
 
   function updatePreviewItems() {
     if (input === "") setPreviewItems([])
-    else setPreviewItems(searchbarFilter(itemData, input).slice(0, 7))
+    else setPreviewItems(searchbarFilter(allItems, input).slice(0, 7))
   }
   
   function closePreview(e) {
-    console.log(e);
     const focusTarget = e.relatedTarget;
     if (focusTarget)
       if (focusTarget.className === "item-container-preview") {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import woodDescriptions from "../../../ItemData/woodDescriptions.json";
-import allItems from "../../../ItemData/ItemData.json";
 import MySlider from "./MySlider";
 const MAX_PRICE = 500;
 const MAX_LENGTH = 6000;
