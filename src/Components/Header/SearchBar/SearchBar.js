@@ -7,7 +7,7 @@ export default function SearchBar({ allItems, setSearchbarFilter }) {
   const [input, setInput] = useState("");
   const [currentSearch, setCurrentSearch] = useState("");
   const [previewItems, setPreviewItems] = useState([]);
-  const catalog = document.querySelector("main.shop > .items");
+  const catalog = document.querySelector("main.shop > .item-display > .items");
   const navigate = useNavigate();
 
   function searchbarFilter(items, search = currentSearch) {

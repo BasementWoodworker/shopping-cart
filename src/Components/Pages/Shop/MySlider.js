@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactSlider from "react-slider";
 
-export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, min, setMin, max, setMax }) {
+export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, min, setMin, max, setMax, moveApplyButtonTo }) {
+  useEffect(() => {
+    const elem = document.getElementById(`min-${criteria}`);
+    moveApplyButtonTo({ target: elem });
+  }, [min])
+
+  useEffect(() => {
+    const elem = document.getElementById(`max-${criteria}`);
+    moveApplyButtonTo({ target: elem });
+  }, [max])
+
   return(
     <div className="slider-container">
       <div className={`filter-criteria ${criteria}`}>{criteria}</div>
@@ -15,7 +25,10 @@ export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, m
         step={step}
         min={lowerLimit}
         max={upperLimit}
-        onChange={(e) => {setMin((Number(e.target.value)))}}
+        onChange={(e) => {
+          console.log("MIN")
+          setMin((Number(e.target.value)))
+        }}
       />
       <ReactSlider
         className="slider"
@@ -35,7 +48,17 @@ export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, m
           setMax(value[1]);
         }}
       />
-      <input id={`max-${criteria}`} value={max} type="number" step={step} min={1} max={upperLimit} onChange={(e) => setMax(Number(e.target.value))}/>
+      <input
+        id={`max-${criteria}`}
+        value={max}
+        type="number"
+        step={step}
+        min={1}
+        max={upperLimit}
+        onChange={(e) => {
+          setMax(Number(e.target.value));
+        }}
+        />
     </div>
   )
 }

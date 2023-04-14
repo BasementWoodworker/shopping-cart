@@ -367,8 +367,36 @@ footer {
 }
 
 .shop > .filter-bar {
+  position: relative;
+  z-index: 1;
   background-color: var(--filter-bar-background);
   width: 250px;
+}
+
+.filter-bar button.apply-filters {
+  position: absolute;
+  left: 245px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--green);
+  padding: 4px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+}
+
+.filter-bar button.apply-filters::before {
+  z-index: -1;
+  position: absolute;
+  top: 4px;
+  right: 42px;
+  display: inline-block;
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: var(--green);
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+  border-radius: 50%;
 }
 
 .filter-settings {

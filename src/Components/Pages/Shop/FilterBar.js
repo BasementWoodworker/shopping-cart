@@ -41,7 +41,10 @@ export default function FilterBar({ setSidebarFilter }) {
   })
   const moistureCheckbox = (
       <label>Dried
-        <input type="checkbox" onClick={() => setFilterDry(!filterDry)}></input>
+        <input type="checkbox" onClick={(event) => {
+          setFilterDry(!filterDry);
+          moveApplyButtonTo(event);
+        }}></input>
       </label>
   )
 
@@ -51,6 +54,7 @@ export default function FilterBar({ setSidebarFilter }) {
     if (input.checked) updatedWood.push(input.name)
     else updatedWood = updatedWood.filter(elem => elem !== input.name);
     setWoodFilter(updatedWood);
+    moveApplyButtonTo(event);
   }
   function updateShapeFilter(event) {
     const input = event.target;
@@ -58,6 +62,7 @@ export default function FilterBar({ setSidebarFilter }) {
     if (input.checked) updatedShape.push(input.name)
     else updatedShape = updatedShape.filter(elem => elem !== input.name);
     setShapeFilter(updatedShape);
+    moveApplyButtonTo(event);
   }
 
   function filterItems(items) {
@@ -80,29 +85,32 @@ export default function FilterBar({ setSidebarFilter }) {
     })
   }
 
-  useEffect(() => {
+  function applyFilters() {
     setSidebarFilter(() => filterItems);
-  }, [
-    woodFilter,
-    shapeFilter,
-    minPrice,
-    maxPrice,
-    minLength,
-    maxLength,
-    minWidth,
-    maxWidth,
-    minThickness,
-    maxThickness,
-    filterDry
-  ]);
+    const applyButton = document.querySelector("button.apply-filters");
+    applyButton.style.top = "-200px";
+    window.scrollTo(0, 0);
+  }
+
+  function moveApplyButtonTo(e) {
+    const input = e.target;
+    const applyButton = document.querySelector("button.apply-filters");
+    const inputOffset = input.offsetTop;
+    const parentOffset = input.type === "checkbox" ? 0 : input.offsetParent.offsetTop;
+    applyButton.style.top = inputOffset + parentOffset - 7 + "px";
+  }
+
+  // Clear filters and hide apply button on mount
+  useEffect(applyFilters, []);
 
   return(
     <nav className="filter-bar">
       <div className="filter-settings">
+        <button className="apply-filters" onClick={applyFilters}>Apply</button>
         <h2 className="filter-type">Wood</h2>
         {woodCheckboxes}
         {separator}
-        <MySlider criteria="price" step={25} upperLimit={MAX_PRICE} min={minPrice} setMin={setMinPrice} max={maxPrice} setMax={setMaxPrice} />
+        <MySlider criteria="price" step={25} upperLimit={MAX_PRICE} min={minPrice} setMin={setMinPrice} max={maxPrice} setMax={setMaxPrice} moveApplyButtonTo={moveApplyButtonTo} />
         {separator}
         <h2 className="filter-type">Shape</h2>
         {shapeCheckboxes}
@@ -110,9 +118,9 @@ export default function FilterBar({ setSidebarFilter }) {
         {moistureCheckbox}
         {separator}
         <h2 className="filter-type">Size</h2>
-        <MySlider criteria="length" step={250} upperLimit={MAX_LENGTH} min={minLength} setMin={setMinLength} max={maxLength} setMax={setMaxLength} />
-        <MySlider criteria="width" step={50} upperLimit={MAX_WIDTH} min={minWidth} setMin={setMinWidth} max={maxWidth} setMax={setMaxWidth} />
-        <MySlider criteria="thickness" step={5} lowerLimit={10} upperLimit={MAX_THICKNESS} min={minThickness} setMin={setMinThickness} max={maxThickness} setMax={setMaxThickness} />
+        <MySlider criteria="length" step={250} upperLimit={MAX_LENGTH} min={minLength} setMin={setMinLength} max={maxLength} setMax={setMaxLength} moveApplyButtonTo={moveApplyButtonTo} />
+        <MySlider criteria="width" step={50} upperLimit={MAX_WIDTH} min={minWidth} setMin={setMinWidth} max={maxWidth} setMax={setMaxWidth} moveApplyButtonTo={moveApplyButtonTo} />
+        <MySlider criteria="thickness" step={5} lowerLimit={10} upperLimit={MAX_THICKNESS} min={minThickness} setMin={setMinThickness} max={maxThickness} setMax={setMaxThickness} moveApplyButtonTo={moveApplyButtonTo} />
       </div>
     </nav>
   )
