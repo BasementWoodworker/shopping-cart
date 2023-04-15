@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/BasementWoodworker/shopping-cart/issues"
   },
-  "homepage": "https://github.com/BasementWoodworker/shopping-cart#readme",
+  "homepage": "https://github.com/BasementWoodworker/shopping-cart",
   "devDependencies": {
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",

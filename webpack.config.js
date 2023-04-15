@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
-    publicPath: "/"
+    publicPath: "./"
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -37,7 +37,7 @@ module.exports = {
       }
     ]
   },
-  mode: "production",
+  mode: "development",
   devServer: {
     static: "./dist",
     historyApiFallback: true

@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 
 export default function RouteSwitch() {
-  const [cart, setCart] = useState([]);
-
   return(
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="" element={<App page="home"/>} />
         <Route path="/shop" element={<App page="shop"/>} />
         <Route path="/shop/:currentPage" element={<App page="shop"/>} />
         <Route path="/items/:itemId" element={<App page="item-page"/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
