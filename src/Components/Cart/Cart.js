@@ -24,7 +24,7 @@ export default function Cart({ cart, setCart, setHideCart }) {
           <div className="cart-close" onClick={() => setHideCart(true)}></div>
         </div>
         <div className="middle-part">
-          {cart.map((item) => <ItemInCart itemInfo={item} cart={cart} setCart={setCart}/>)}
+          {cart.map((item) => <ItemInCart itemInfo={item} cart={cart} setCart={setCart} key={item.id} />)}
         </div>
         {cart.length !== 0 ? checkout : emptyMsg}
       </div>

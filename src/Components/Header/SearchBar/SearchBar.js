@@ -35,11 +35,10 @@ export default function SearchBar({ allItems, setSearchbarFilter }) {
     event.preventDefault();
     setCurrentSearch(input);
     setInput("");
-    navigate("/");
     navigate("/shop");
   }
 
-  useEffect(() => setSearchbarFilter(() => searchbarFilter), [currentSearch])
+  useEffect(() => setSearchbarFilter(() => searchbarFilter), [currentSearch]);
 
   function updatePreviewItems() {
     if (input === "") setPreviewItems([])

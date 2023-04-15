@@ -6,7 +6,7 @@ export default function Header({ allItems, setHideCart, cart, setSearchbarFilter
   const cartSize = cart.reduce((summ, item) => summ += item.quantity, 0);
   return(
     <header>
-      <a href="/" id="shop-name"></a>
+      <Link to="/" id="shop-name"></Link>
       <nav>
         <SearchBar allItems={allItems} setSearchbarFilter={setSearchbarFilter}/>
         <Link to="/">Home</Link>

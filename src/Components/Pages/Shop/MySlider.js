@@ -26,7 +26,6 @@ export default function MySlider({ criteria, step, lowerLimit = 0, upperLimit, m
         min={lowerLimit}
         max={upperLimit}
         onChange={(e) => {
-          console.log("MIN")
           setMin((Number(e.target.value)))
         }}
       />

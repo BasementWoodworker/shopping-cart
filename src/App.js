@@ -9,6 +9,7 @@ import allItems from "./ItemData/ItemData.json";
 
 function addTestJunk(array) {
   for (let i = 0; i < 500; i++) {
+    const id = i + 1000;
     array.push({
       "wood": "test",
       "price": "",
@@ -17,7 +18,7 @@ function addTestJunk(array) {
       "width": "1",
       "thickness": "10",
       "moisture": "1",
-      "id": "99999999"
+      "id": id.toString()
     })
   }
 }

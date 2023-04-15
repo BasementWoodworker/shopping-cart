@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import woodDescriptions from "../../../ItemData/woodDescriptions.json";
 import MySlider from "./MySlider";
+
 const MAX_PRICE = 500;
 const MAX_LENGTH = 6000;
 const MAX_WIDTH = 2000;
@@ -23,18 +25,19 @@ export default function FilterBar({ setSidebarFilter }) {
   const [minThickness, setMinThickness] = useState(10);
   const [maxThickness, setMaxThickness] = useState(MAX_THICKNESS);
   const [filterDry, setFilterDry] = useState(false);
+  const navigate = useNavigate();
 
   const separator = <div className="separator-line"></div>
-  const woodCheckboxes = Object.keys(woodDescriptions).map((wood) => {
+  const woodCheckboxes = Object.keys(woodDescriptions).map((wood, i) => {
     return(
-      <label>{wood}
+      <label key={i}>{wood}
         <input type="checkbox" name={wood} onClick={updateWoodFilter}></input>
       </label>
     )
   })
-  const shapeCheckboxes = lumberShapes.map((shape) => {
+  const shapeCheckboxes = lumberShapes.map((shape, i) => {
     return (
-      <label>{shape}
+      <label key={i}>{shape}
         <input type="checkbox" name={shape} onClick={updateShapeFilter}></input>
       </label>
     )
@@ -92,8 +95,9 @@ export default function FilterBar({ setSidebarFilter }) {
 
   function applyFilters() {
     setSidebarFilter(() => filterItems);
-    hideApplyButton()
+    hideApplyButton();
     window.scrollTo(0, 0);
+    navigate("/shop/1");
   }
 
   function moveApplyButtonTo(e) {

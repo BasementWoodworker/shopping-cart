@@ -8,7 +8,7 @@ export default function Items({ displayedItems, addToCart, ITEMS_PER_PAGE }) {
   const pageItems = displayedItems.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE - 1);
   const wrappedItems = pageItems.map((itemInfo) => {
     return(
-      <Item itemInfo={itemInfo} addToCart={addToCart}/>
+      <Item itemInfo={itemInfo} addToCart={addToCart} key={itemInfo.id}/>
     )
   })
   const emptyMsg = (
