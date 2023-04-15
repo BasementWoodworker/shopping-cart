@@ -62,20 +62,23 @@ header {
 }
 
 header > #shop-name {
+  flex-shrink: 0;
   margin-left: 10px;
   background-image: url("./Assets/icons/logo.svg");
+  background-repeat: no-repeat;
   height: 50px;
   width: 50px;
 }
 
 header > nav {
   display: flex;
+  gap: 40px;
   align-items: center;
   margin: 0 50px;
 }
 
 header > nav > * {
-  padding: 20px;
+
   font-size: 28px;
 }
 
@@ -175,8 +178,11 @@ input.searchbar {
 
 footer {
   height: 50px;
+  line-height: 50px;
   background-color: rgb(27, 26, 26);
   color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 .cart-link {
@@ -212,25 +218,27 @@ footer {
 .cart {
   position: sticky;
   top: 0;
-  left: 100px;
   flex: 0 1 650px;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   padding: 20px;
-  overflow-y: scroll;
-  scrollbar-width: 0px;
   background-color: white;
 }
 
-.cart::-webkit-scrollbar {
-  display: none;
+.cart > .top-part {
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
-.cart {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.cart > .top-part > .description {
+  font-size: 40px;
+  margin-left: 10px;
 }
 
-.cart-close {
+.cart > .top-part > .cart-close {
   height: 50px;
   width: 50px;
   margin-left: auto;
@@ -239,6 +247,21 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.cart > .middle-part {
+  flex: 0 1 auto;
+  overflow-y: scroll;
+  scrollbar-width: 0px;
+}
+
+.middle-part::-webkit-scrollbar {
+  display: none;
+}
+
+.middle-part {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .item-container-cart {
@@ -347,7 +370,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   padding: 50px;
-  width: 70%;
+  width: max(550px, 70%);
   height: 60%;
   background:rgba(235, 235, 235, 0.8)
 }
@@ -369,6 +392,7 @@ footer {
 .shop > .filter-bar {
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
   background-color: var(--filter-bar-background);
   width: 250px;
 }
@@ -522,7 +546,7 @@ footer {
 
 .items > .empty-message {
   position: relative;
-  bottom: 100px;
+  top: 100px;
   font-size: 100px;
   color: lightgrey;
 }

@@ -45,6 +45,7 @@ export default function App({ page }) {
   const [displayedItems, setDisplayedItems] = useState(allItems);
   const [searchbarFilter, setSearchbarFilter] = useState(() => (data) => data);
   const [sidebarFilter, setSidebarFilter] = useState(() => (data) => data);
+  const [remountSidebar, setRemountSidebar] = useState(false);
   const positiveWholeNumbers = new RegExp(/^0*[1-9]\d*$/);
 
   function addToCart(newItem, quantity = 1) {
@@ -74,9 +75,12 @@ export default function App({ page }) {
     sidebarFilter
   ])
 
+  // Remount sidebar to clear its filters on new search
+  useEffect(() => setRemountSidebar(!remountSidebar), [ searchbarFilter ])
+
   const currentPage = 
     page === "home" ? <Home/> :
-    page === "shop" ? <Shop addToCart={addToCart} displayedItems={displayedItems} setSidebarFilter={setSidebarFilter} ITEMS_PER_PAGE={ITEMS_PER_PAGE}/> :
+    page === "shop" ? <Shop key={remountSidebar} addToCart={addToCart} displayedItems={displayedItems} setSidebarFilter={setSidebarFilter} ITEMS_PER_PAGE={ITEMS_PER_PAGE}/> :
     page === "item-page" ? <ItemPage allItems={allItems} addToCart={addToCart}/> :
     null;
   

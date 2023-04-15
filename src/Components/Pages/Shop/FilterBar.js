@@ -85,10 +85,14 @@ export default function FilterBar({ setSidebarFilter }) {
     })
   }
 
-  function applyFilters() {
-    setSidebarFilter(() => filterItems);
+  function hideApplyButton() {
     const applyButton = document.querySelector("button.apply-filters");
     applyButton.style.top = "-200px";
+  }
+
+  function applyFilters() {
+    setSidebarFilter(() => filterItems);
+    hideApplyButton()
     window.scrollTo(0, 0);
   }
 

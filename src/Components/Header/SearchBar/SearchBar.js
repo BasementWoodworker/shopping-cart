@@ -35,6 +35,7 @@ export default function SearchBar({ allItems, setSearchbarFilter }) {
     event.preventDefault();
     setCurrentSearch(input);
     setInput("");
+    navigate("/");
     navigate("/shop");
   }
 

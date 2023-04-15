@@ -19,8 +19,13 @@ export default function Cart({ cart, setCart, setHideCart }) {
   return(
     <div className="cart-container modal" onClick={() => setHideCart(true)}>
       <div className="cart" onClick={(event) => event.stopPropagation()}>
-        <div className="cart-close" onClick={() => setHideCart(true)}></div>
-        {cart.map((item) => <ItemInCart itemInfo={item} cart={cart} setCart={setCart}/>)}
+        <div className="top-part">
+          <h2 className="description">Your cart</h2>
+          <div className="cart-close" onClick={() => setHideCart(true)}></div>
+        </div>
+        <div className="middle-part">
+          {cart.map((item) => <ItemInCart itemInfo={item} cart={cart} setCart={setCart}/>)}
+        </div>
         {cart.length !== 0 ? checkout : emptyMsg}
       </div>
     </div>
