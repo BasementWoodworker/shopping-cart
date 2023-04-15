@@ -23,9 +23,24 @@ function addTestJunk(array) {
 }
 addTestJunk(allItems);
 
+function useStateLocalStorage(initialValue, keyName) {
+  let storedValue = localStorage.getItem(keyName);
+  if (!storedValue) {
+    storedValue = JSON.stringify(initialValue);
+    localStorage.setItem(keyName, storedValue);
+  }
+  storedValue = JSON.parse(storedValue);
+  const [value, setValue] = useState(storedValue);
+  function setter(value) {
+    setValue(value);
+    localStorage.setItem(keyName, JSON.stringify(value));
+  }
+  return [value, setter];
+}
+
 export default function App({ page }) {
   const ITEMS_PER_PAGE = 12;
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useStateLocalStorage([], "shopping-cart");
   const [hideCart, setHideCart] = useState(true);
   const [displayedItems, setDisplayedItems] = useState(allItems);
   const [searchbarFilter, setSearchbarFilter] = useState(() => (data) => data);
