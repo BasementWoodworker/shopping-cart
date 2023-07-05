@@ -76,6 +76,11 @@ export default function App({ page }) {
     sidebarFilter
   ])
 
+  useEffect(function toggleScrolling() {
+    if (hideCart) document.body.style.overflow = "visible"
+    else document.body.style.overflow = "hidden"
+  }, [hideCart])
+
   // Remount sidebar to clear its filters on new search
   useEffect(() => setRemountSidebar(!remountSidebar), [ searchbarFilter ])
 

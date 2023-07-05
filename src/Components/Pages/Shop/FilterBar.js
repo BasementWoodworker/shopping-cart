@@ -13,7 +13,7 @@ const lumberShapes = [
   "slab"
 ]
 
-export default function FilterBar({ setSidebarFilter }) {
+export default function FilterBar({ setSidebarFilter, isShownOnMobile, setIsShownOnMobile }) {
   const [woodFilter, setWoodFilter] = useState([]);
   const [shapeFilter, setShapeFilter] = useState([]);
   const [minPrice, setMinPrice] = useState(0);
@@ -94,9 +94,15 @@ export default function FilterBar({ setSidebarFilter }) {
   }
 
   function applyFilters() {
+    console.log("Applying filters")
     setSidebarFilter(() => filterItems);
     hideApplyButton();
     window.scrollTo(0, 0);
+    setIsShownOnMobile(false);
+  }
+
+  function handleApplyClick() {
+    applyFilters();
     navigate("/shop/1");
   }
 
@@ -112,9 +118,13 @@ export default function FilterBar({ setSidebarFilter }) {
   useEffect(applyFilters, []);
 
   return(
-    <nav className="filter-bar">
+    <nav className={`filter-bar ${isShownOnMobile ? "shown" : ""}`}>
+      <button className="hide-filters-mobile" onClick={() => setIsShownOnMobile(false)}>
+        <div className="go-back-icon"></div>
+        <div>Shop</div>
+      </button>
       <div className="filter-settings">
-        <button className="apply-filters" onClick={applyFilters}>Apply</button>
+        <button className="apply-filters" onClick={handleApplyClick}>Apply</button>
         <h2 className="filter-type">Wood</h2>
         {woodCheckboxes}
         {separator}

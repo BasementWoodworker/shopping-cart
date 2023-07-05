@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Items from "./Items";
 import FilterBar from "./FilterBar";
 import uniqid from "uniqid";
 
 export default function Shop({ addToCart, displayedItems, setSidebarFilter, ITEMS_PER_PAGE }) {
+  const [isFilterBarShowOnMobile, setIsFilterBarShownOnMobile] = useState(false);
   let { currentPage } = useParams();
   if (currentPage === undefined) currentPage = 1;
   const lastPage = Math.ceil(displayedItems.length / ITEMS_PER_PAGE);
@@ -25,8 +26,12 @@ export default function Shop({ addToCart, displayedItems, setSidebarFilter, ITEM
 
   return(
     <main className="shop">
-      <FilterBar setSidebarFilter={setSidebarFilter}/>
+      <FilterBar setSidebarFilter={setSidebarFilter} isShownOnMobile={isFilterBarShowOnMobile} setIsShownOnMobile={setIsFilterBarShownOnMobile} />
       <div className="item-display">
+        <button className="show-filters-mobile" onClick={() => setIsFilterBarShownOnMobile(prev => !prev)}>
+          <div className="filters-icon"></div>
+          <div>Filters</div>
+        </button>
         <Items displayedItems={displayedItems} addToCart={addToCart} ITEMS_PER_PAGE={ITEMS_PER_PAGE}/>
         {
           (displayedItems.length !== 0 && currentPage <= lastPage) ?

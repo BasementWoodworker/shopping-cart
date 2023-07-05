@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function ItemInCart({ itemInfo, cart, setCart }) {
+export default function ItemInCart({ itemInfo, cart, setCart, setHideCart }) {
   const {
     wood,
     price,
@@ -47,23 +48,26 @@ export default function ItemInCart({ itemInfo, cart, setCart }) {
     setCart(cart.slice(0, itemIndex).concat(cart.slice(itemIndex + 1)));
   }
 
-  function remove() {
+  function remove(e) {
+    e.preventDefault();
     setCart(cart.filter(elem => elem.id !== id));
   }
 
   return(
-  <div className="item-container-cart">
+  <Link className="item-container-cart" to={"/items/" + itemInfo.id} onClick={() => setHideCart(true)}>
     <img src={require(`../../Assets/images/products/${wood.toLowerCase()}-${shape}.jpg`)}></img>
-    <p className="name">{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
     <div className="right-part">
-      <span className="price">{"$" + price * quantity}</span>
-      <div className="quantity-container" onClick={e => e.preventDefault()}>
-        <button onClick={decrement}>−</button>
-        <input min={1} value={quantity} onChange={handleInputChange} onBlur={removeZeroQuantityItems}/>
-        <button onClick={increment}>+</button>
+      <p className="name">{`${wood} ${shape} ${thickness} x ${width} x ${length}`}</p>
+      <div className="slide-under-in-mobile" onClick={e => e.stopPropagation()}>
+        <span className="price">{"$" + price * quantity}</span>
+        <div className="quantity-container" onClick={e => e.preventDefault()}>
+          <button onClick={decrement}>−</button>
+          <input min={1} value={quantity} onChange={handleInputChange} onBlur={removeZeroQuantityItems}/>
+          <button onClick={increment}>+</button>
+        </div>
+        <button className="remove" onClick={remove}>Remove</button>
       </div>
-      <button className="remove" onClick={remove}>Remove</button>
     </div>
-  </div>
+  </Link>
   )
 }
